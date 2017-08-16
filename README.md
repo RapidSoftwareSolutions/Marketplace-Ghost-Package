@@ -31,7 +31,7 @@ Exchange a clientId and clientSecret for an API accessToken.
 | password    | String     | User password.
 
 ## Ghost.getAllPosts
-The getAllPosts endpoint allows you to browse all published posts on a particular blog.
+The getAllPosts endpoint allows you to browse all published posts on a particular blog.By default it returns a paginated set of 15 published posts in reverse chronological order (newest first) and excludes pages.
 
 | Field       | Type  | Description
 |-------------|-------|----------
@@ -40,8 +40,8 @@ The getAllPosts endpoint allows you to browse all published posts on a particula
 | include     | Select| Include related data.Options - tags,author,tags and author.
 | limit       | Number| How many posts to retrieve.
 | showAllPosts| Select| Retrieve all posts.
-| page        | Number| Which page of paginated results to retrieve.
-| order       | String| Choose which field to order by and direction of ordering.
+| page        | Number| Which page of paginated results to retrieve.The page parameter allows you to specify which page of a paginated collection to return.
+| order       | String| Choose which field to order by and direction of ordering.You can choose any valid resource field in ascending (asc) or descending (desc) order.Example:id desc.
 | fields      | List  | Allows you to specify which resource fields to retrieve rather than retrieving the. whole object.
 | filter      | String| Use Ghost Query Language to build complex query.
 | resource    | String| Id or slug changes query to a read request.
@@ -57,7 +57,7 @@ This endpoint allows you to read a specific post based on its id.
 | include    | Select| Include related data.Options - tags,author,tags and author.
 
 ## Ghost.getPostBySlug
-This endpoint allows you to read a specific post based on its slug.
+This endpoint allows you to read a specific post based on its slug.You can then use the parameters to to specify which data to collect. By default it returns a paginated set of 15 tags in order of database row (first row first).
 
 | Field      | Type  | Description
 |------------|-------|----------
@@ -76,8 +76,8 @@ The getAllTags endpoints allow you to browse all tags on a particular blog.
 | includeCountPosts| Select| Include related count posts data.Options - Yes,No.
 | limit            | Number| How many posts to retrieve.
 | showAllPosts     | Select| Retrieve all posts on page.
-| page             | Number| Which page of paginated results to retrieve.
-| order            | String| Choose which field to order by and direction of ordering.
+| page             | Number| Which page of paginated results to retrieve.The page parameter allows you to specify which page of a paginated collection to return.
+| order            | String| Choose which field to order by and direction of ordering.You can choose any valid resource field in ascending (asc) or descending (desc) order.Example:id desc.
 | fields           | List  | Allows you to specify which resource fields to retrieve rather than retrieving the. whole object.
 | filter           | String| Use Ghost Query Language to build complex query.
 | resource         | String| Id changes query to a read request.
@@ -103,7 +103,7 @@ This endpoint allows you to read a specific tag based on its slug.
 | includeCountPosts| Select| Include related count posts data.
 
 ## Ghost.getAllUsers
-The getAllUsers endpoint allows you to browse all active users on a particular blog.
+The getAllUsers endpoint allows you to browse all active users on a particular blog.By default it returns a paginated set of 15 active users in descending order of last_login.
 
 | Field            | Type  | Description
 |------------------|-------|----------
@@ -112,8 +112,8 @@ The getAllUsers endpoint allows you to browse all active users on a particular b
 | includeCountPosts| Select| Include related count posts data.
 | limit            | Number| How many posts to retrieve.
 | showAllPosts     | Select| Retrieve all posts on page.Options - Yes,No.
-| page             | Number| Which page of paginated results to retrieve.
-| order            | String| Choose which field to order by and direction of ordering.
+| page             | Number| Which page of paginated results to retrieve.The page parameter allows you to specify which page of a paginated collection to return.
+| order            | String| Choose which field to order by and direction of ordering.You can choose any valid resource field in ascending (asc) or descending (desc) order.Example:id desc.
 | fields           | List  | Allows you to specify which resource fields to retrieve rather than retrieving the. whole object.
 | filter           | String| Use Ghost Query Language to build complex query.
 
