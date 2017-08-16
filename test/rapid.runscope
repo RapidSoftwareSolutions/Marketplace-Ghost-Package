@@ -1,0 +1,403 @@
+{
+  	"name": "Ghost", 
+  	"description": "Ghost is a fully open source, hackable platform for building and running a modern online publication. We power blogs, magazines and journalists from Zappos to Sky News.",
+  	"version": "1.0", 
+  	"steps": [  
+        {
+            "body": "{\r\n\t\"clientId\": \"\",\r\n\t\"clientSecret\": \"\",\r\n\t\"blogUrl\": \"{{blogUrl}}\",\r\n\t\"username\": \"\",\r\n\t\"password\": \"\"\r\n}", 
+            "form": {}, 
+            "url": "https://rapidapi.io/connect/Ghost/getAccessToken", 
+            "variables": [],
+            "step_type": "request", 
+            "auth": {
+                "username": "qa-project", 
+                "auth_type": "basic", 
+                "password": "481bab2d-e8fe-4214-8714-bab8157356e4"
+            }, 
+            "fragment": "", 
+            "note": "", 
+            "headers": {
+                "Content-Type": [
+                    "application/json"
+                ]
+            }, 
+            "assertions": [
+                {
+                    "comparison": "equal_number", 
+                    "value": 200, 
+                    "source": "response_status"
+                }, 
+                {
+                    "comparison": "equal", 
+                    "property": "outcome", 
+                    "value": "success", 
+                    "source": "response_json"
+                }
+            ], 
+            "scripts": [
+            ],
+            "before_scripts": [], 
+            "method": "POST"
+        },     
+        {
+            "body": "{\r\n\t\"accessToken\": \"{{accessToken}}\",\r\n\t\"blogUrl\": \"{{blogUrl}}\",\r\n\t\"include\": \"tags\",\r\n\t\"limit\": \"5\",\r\n\t\"showAllPosts\": \"Yes\",\r\n\t\"page\": \"1\",\r\n\t\"order\": \"id asc\",\r\n\t\"fields\": \"id\",\r\n\t\"filter\": \"\",\r\n\t\"resource\": \"\"\r\n}", 
+            "form": {}, 
+            "url": "https://rapidapi.io/connect/Ghost/getAllPosts", 
+            "variables": [],
+            "step_type": "request", 
+            "auth": {
+                "username": "qa-project", 
+                "auth_type": "basic", 
+                "password": "481bab2d-e8fe-4214-8714-bab8157356e4"
+            }, 
+            "fragment": "", 
+            "note": "", 
+            "headers": {
+                "Content-Type": [
+                    "application/json"
+                ]
+            }, 
+            "assertions": [
+                {
+                    "comparison": "equal_number", 
+                    "value": 200, 
+                    "source": "response_status"
+                }, 
+                {
+                    "comparison": "equal", 
+                    "property": "outcome", 
+                    "value": "success", 
+                    "source": "response_json"
+                }
+            ], 
+            "scripts": [
+            ],
+            "before_scripts": [], 
+            "method": "POST"
+        },     
+        {
+            "body": "{\r\n\t\"accessToken\": \"{{accessToken}}\",\r\n\t\"blogUrl\": \"{{blogUrl}}\",\r\n\t\"postId\": \"5991bded344e5c00191d160b\",\r\n\t\"include\": \"tags\"\r\n}", 
+            "form": {}, 
+            "url": "https://rapidapi.io/connect/Ghost/getPost", 
+            "variables": [],
+            "step_type": "request", 
+            "auth": {
+                "username": "qa-project", 
+                "auth_type": "basic", 
+                "password": "481bab2d-e8fe-4214-8714-bab8157356e4"
+            }, 
+            "fragment": "", 
+            "note": "", 
+            "headers": {
+                "Content-Type": [
+                    "application/json"
+                ]
+            }, 
+            "assertions": [
+                {
+                    "comparison": "equal_number", 
+                    "value": 200, 
+                    "source": "response_status"
+                }, 
+                {
+                    "comparison": "equal", 
+                    "property": "outcome", 
+                    "value": "success", 
+                    "source": "response_json"
+                }
+            ], 
+            "scripts": [
+            ],
+            "before_scripts": [], 
+            "method": "POST"
+        },     
+        {
+            "body": "{\r\n\t\"accessToken\": \"{{accessToken}}\",\r\n\t\"blogUrl\": \"{{blogUrl}}\",\r\n\t\"slug\": \"themes\",\r\n\t\"include\": \"tags\"\r\n}", 
+            "form": {}, 
+            "url": "https://rapidapi.io/connect/Ghost/getPostBySlug", 
+            "variables": [],
+            "step_type": "request", 
+            "auth": {
+                "username": "qa-project", 
+                "auth_type": "basic", 
+                "password": "481bab2d-e8fe-4214-8714-bab8157356e4"
+            }, 
+            "fragment": "", 
+            "note": "", 
+            "headers": {
+                "Content-Type": [
+                    "application/json"
+                ]
+            }, 
+            "assertions": [
+                {
+                    "comparison": "equal_number", 
+                    "value": 200, 
+                    "source": "response_status"
+                }, 
+                {
+                    "comparison": "equal", 
+                    "property": "outcome", 
+                    "value": "success", 
+                    "source": "response_json"
+                }
+            ], 
+            "scripts": [
+            ],
+            "before_scripts": [], 
+            "method": "POST"
+        },     
+        {
+            "body": "{\r\n\t\"accessToken\": \"{{accessToken}}\",\r\n\t\"blogUrl\": \"{{blogUrl}}\",\r\n\t\"includeCountPosts\": \"\",\r\n\t\"limit\": \"5\",\r\n\t\"showAllPosts\": \"Yes\",\r\n\t\"page\": \"1\",\r\n\t\"order\": \"id asc\",\r\n\t\"fields\": \"id\",\r\n\t\"filter\": \"\",\r\n\t\"resource\": \"\"\r\n}", 
+            "form": {}, 
+            "url": "https://rapidapi.io/connect/Ghost/getAllTags", 
+            "variables": [],
+            "step_type": "request", 
+            "auth": {
+                "username": "qa-project", 
+                "auth_type": "basic", 
+                "password": "481bab2d-e8fe-4214-8714-bab8157356e4"
+            }, 
+            "fragment": "", 
+            "note": "", 
+            "headers": {
+                "Content-Type": [
+                    "application/json"
+                ]
+            }, 
+            "assertions": [
+                {
+                    "comparison": "equal_number", 
+                    "value": 200, 
+                    "source": "response_status"
+                }, 
+                {
+                    "comparison": "equal", 
+                    "property": "outcome", 
+                    "value": "success", 
+                    "source": "response_json"
+                }
+            ], 
+            "scripts": [
+            ],
+            "before_scripts": [], 
+            "method": "POST"
+        },     
+        {
+            "body": "{\r\n\t\"accessToken\": \"{{accessToken}}\",\r\n\t\"blogUrl\": \"{{blogUrl}}\",\r\n\t\"tagId\": \"5991bded344e5c00191d1612\",\r\n\t\"includeCountPosts\": \"Yes\"\r\n}", 
+            "form": {}, 
+            "url": "https://rapidapi.io/connect/Ghost/getTag", 
+            "variables": [],
+            "step_type": "request", 
+            "auth": {
+                "username": "qa-project", 
+                "auth_type": "basic", 
+                "password": "481bab2d-e8fe-4214-8714-bab8157356e4"
+            }, 
+            "fragment": "", 
+            "note": "", 
+            "headers": {
+                "Content-Type": [
+                    "application/json"
+                ]
+            }, 
+            "assertions": [
+                {
+                    "comparison": "equal_number", 
+                    "value": 200, 
+                    "source": "response_status"
+                }, 
+                {
+                    "comparison": "equal", 
+                    "property": "outcome", 
+                    "value": "success", 
+                    "source": "response_json"
+                }
+            ], 
+            "scripts": [
+            ],
+            "before_scripts": [], 
+            "method": "POST"
+        },     
+        {
+            "body": "{\r\n\t\"accessToken\": \"{{accessToken}}\",\r\n\t\"blogUrl\": \"{{blogUrl}}\",\r\n\t\"slug\": \"getting-started\",\r\n\t\"includeCountPosts\": \"Yes\"\r\n}", 
+            "form": {}, 
+            "url": "https://rapidapi.io/connect/Ghost/getTagBySlug", 
+            "variables": [],
+            "step_type": "request", 
+            "auth": {
+                "username": "qa-project", 
+                "auth_type": "basic", 
+                "password": "481bab2d-e8fe-4214-8714-bab8157356e4"
+            }, 
+            "fragment": "", 
+            "note": "", 
+            "headers": {
+                "Content-Type": [
+                    "application/json"
+                ]
+            }, 
+            "assertions": [
+                {
+                    "comparison": "equal_number", 
+                    "value": 200, 
+                    "source": "response_status"
+                }, 
+                {
+                    "comparison": "equal", 
+                    "property": "outcome", 
+                    "value": "success", 
+                    "source": "response_json"
+                }
+            ], 
+            "scripts": [
+            ],
+            "before_scripts": [], 
+            "method": "POST"
+        },     
+        {
+            "body": "{\r\n\t\"accessToken\": \"{{accessToken}}\",\r\n\t\"blogUrl\": \"{{blogUrl}}\",\r\n\t\"includeCountPosts\": \"Yes\",\r\n\t\"limit\": \"5\",\r\n\t\"showAllPosts\": \"Yes\",\r\n\t\"page\": \"1\",\r\n\t\"order\": \"id asc\",\r\n\t\"fields\": \"id\",\r\n\t\"filter\": \"\"\r\n}", 
+            "form": {}, 
+            "url": "https://rapidapi.io/connect/Ghost/getAllUsers", 
+            "variables": [],
+            "step_type": "request", 
+            "auth": {
+                "username": "qa-project", 
+                "auth_type": "basic", 
+                "password": "481bab2d-e8fe-4214-8714-bab8157356e4"
+            }, 
+            "fragment": "", 
+            "note": "", 
+            "headers": {
+                "Content-Type": [
+                    "application/json"
+                ]
+            }, 
+            "assertions": [
+                {
+                    "comparison": "equal_number", 
+                    "value": 200, 
+                    "source": "response_status"
+                }, 
+                {
+                    "comparison": "equal", 
+                    "property": "outcome", 
+                    "value": "success", 
+                    "source": "response_json"
+                }
+            ], 
+            "scripts": [
+            ],
+            "before_scripts": [], 
+            "method": "POST"
+        },     
+        {
+            "body": "{\r\n\t\"accessToken\": \"{{accessToken}}\",\r\n\t\"blogUrl\": \"{{blogUrl}}\",\r\n\t\"userId\": \"5951f5fca366002ebd5dbef7\",\r\n\t\"includeCountPosts\": \"Yes\"\r\n}", 
+            "form": {}, 
+            "url": "https://rapidapi.io/connect/Ghost/getUser", 
+            "variables": [],
+            "step_type": "request", 
+            "auth": {
+                "username": "qa-project", 
+                "auth_type": "basic", 
+                "password": "481bab2d-e8fe-4214-8714-bab8157356e4"
+            }, 
+            "fragment": "", 
+            "note": "", 
+            "headers": {
+                "Content-Type": [
+                    "application/json"
+                ]
+            }, 
+            "assertions": [
+                {
+                    "comparison": "equal_number", 
+                    "value": 200, 
+                    "source": "response_status"
+                }, 
+                {
+                    "comparison": "equal", 
+                    "property": "outcome", 
+                    "value": "success", 
+                    "source": "response_json"
+                }
+            ], 
+            "scripts": [
+            ],
+            "before_scripts": [], 
+            "method": "POST"
+        },     
+        {
+            "body": "{\r\n\t\"accessToken\": \"{{accessToken}}\",\r\n\t\"blogUrl\": \"{{blogUrl}}\",\r\n\t\"slug\": \"ghost\",\r\n\t\"includeCountPosts\": \"Yes\"\r\n}", 
+            "form": {}, 
+            "url": "https://rapidapi.io/connect/Ghost/getUserBySlug", 
+            "variables": [],
+            "step_type": "request", 
+            "auth": {
+                "username": "qa-project", 
+                "auth_type": "basic", 
+                "password": "481bab2d-e8fe-4214-8714-bab8157356e4"
+            }, 
+            "fragment": "", 
+            "note": "", 
+            "headers": {
+                "Content-Type": [
+                    "application/json"
+                ]
+            }, 
+            "assertions": [
+                {
+                    "comparison": "equal_number", 
+                    "value": 200, 
+                    "source": "response_status"
+                }, 
+                {
+                    "comparison": "equal", 
+                    "property": "outcome", 
+                    "value": "success", 
+                    "source": "response_json"
+                }
+            ], 
+            "scripts": [
+            ],
+            "before_scripts": [], 
+            "method": "POST"
+        },     
+        {
+            "body": "{\r\n\t\"accessToken\": \"{{accessToken}}\",\r\n\t\"blogUrl\": \"{{blogUrl}}\",\r\n\t\"email\": \"ghost-author@example.com\",\r\n\t\"includeCountPosts\": \"Yes\"\r\n}", 
+            "form": {}, 
+            "url": "https://rapidapi.io/connect/Ghost/getUserByEmail", 
+            "variables": [],
+            "step_type": "request", 
+            "auth": {
+                "username": "qa-project", 
+                "auth_type": "basic", 
+                "password": "481bab2d-e8fe-4214-8714-bab8157356e4"
+            }, 
+            "fragment": "", 
+            "note": "", 
+            "headers": {
+                "Content-Type": [
+                    "application/json"
+                ]
+            }, 
+            "assertions": [
+                {
+                    "comparison": "equal_number", 
+                    "value": 200, 
+                    "source": "response_status"
+                }, 
+                {
+                    "comparison": "equal", 
+                    "property": "outcome", 
+                    "value": "success", 
+                    "source": "response_json"
+                }
+            ], 
+            "scripts": [
+            ],
+            "before_scripts": [], 
+            "method": "POST"
+        }
+  	]
+}

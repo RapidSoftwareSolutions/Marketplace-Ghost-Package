@@ -14,7 +14,7 @@ $app->post('/api/Ghost/getAllUsers', function ($request, $response) {
         "filter" => "filter",
         "resource" => "resource"
     );
-    $arrayType = array();
+    $arrayType = array("fields" => ",");
 
     $url = '/ghost/api/v0.1/users/';
     $settings = $this->settings;

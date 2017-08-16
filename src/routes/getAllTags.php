@@ -14,7 +14,7 @@ $app->post('/api/Ghost/getAllTags', function ($request, $response) {
         "filter" => "filter",
         "resource" => "resource"
     );
-    $arrayType = array();
+    $arrayType = array("fields" => ",");
 
     $url = '/ghost/api/v0.1/tags/';
     $settings = $this->settings;

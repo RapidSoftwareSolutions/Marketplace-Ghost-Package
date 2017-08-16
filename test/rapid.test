@@ -1,0 +1,338 @@
+{
+	"name": "Ghost",
+	"description": "Ghost is a fully open source, hackable platform for building and running a modern online publication. We power blogs, magazines and journalists from Zappos to Sky News.",
+	"connect": {
+		"username": "qa-project",
+		"password": "481bab2d-e8fe-4214-8714-bab8157356e4"
+	},
+	"dependencies": {
+
+	},
+	"blocks": [
+		{
+			"name": "getAccessToken",
+			"note": "",
+			"skip": false,
+			"params": [
+				{
+					"key": "clientId",
+					"value": ""
+				},
+				{
+					"key": "clientSecret",
+					"value": ""
+				},
+				{
+					"key": "blogUrl",
+					"value": "{{blogUrl}}"
+				},
+				{
+					"key": "username",
+					"value": ""
+				},
+				{
+					"key": "password",
+					"value": ""
+				}
+			]
+		},
+		{
+			"name": "getAllPosts",
+			"note": "",
+			"skip": false,
+			"params": [
+				{
+					"key": "accessToken",
+					"value": "{{accessToken}}"
+				},
+				{
+					"key": "blogUrl",
+					"value": "{{blogUrl}}"
+				},
+				{
+					"key": "include",
+					"value": "tags"
+				},
+				{
+					"key": "limit",
+					"value": 5
+				},
+				{
+					"key": "showAllPosts",
+					"value": "Yes"
+				},
+				{
+					"key": "page",
+					"value": 1
+				},
+				{
+					"key": "order",
+					"value": "id asc"
+				},
+				{
+					"key": "fields",
+					"value": ["id"]
+				},
+				{
+					"key": "filter",
+					"value": ""
+				},
+				{
+					"key": "resource",
+					"value": ""
+				}
+			]
+		},
+		{
+			"name": "getPost",
+			"note": "",
+			"skip": false,
+			"params": [
+				{
+					"key": "accessToken",
+					"value": "{{accessToken}}"
+				},
+				{
+					"key": "blogUrl",
+					"value": "{{blogUrl}}"
+				},
+				{
+					"key": "postId",
+					"value": "5991bded344e5c00191d160b"
+				},
+				{
+					"key": "include",
+					"value": "tags"
+				}
+			]
+		},
+		{
+			"name": "getPostBySlug",
+			"note": "",
+			"skip": false,
+			"params": [
+				{
+					"key": "accessToken",
+					"value": "{{accessToken}}"
+				},
+				{
+					"key": "blogUrl",
+					"value": "{{blogUrl}}"
+				},
+				{
+					"key": "slug",
+					"value": "themes"
+				},
+				{
+					"key": "include",
+					"value": "tags"
+				}
+			]
+		},
+		{
+			"name": "getAllTags",
+			"note": "",
+			"skip": false,
+			"params": [
+				{
+					"key": "accessToken",
+					"value": "{{accessToken}}"
+				},
+				{
+					"key": "blogUrl",
+					"value": "{{blogUrl}}"
+				},
+				{
+					"key": "includeCountPosts",
+					"value": ""
+				},
+				{
+					"key": "limit",
+					"value": 5
+				},
+				{
+					"key": "showAllPosts",
+					"value": "Yes"
+				},
+				{
+					"key": "page",
+					"value": 1
+				},
+				{
+					"key": "order",
+					"value": "id asc"
+				},
+				{
+					"key": "fields",
+					"value": ["id"]
+				},
+				{
+					"key": "filter",
+					"value": ""
+				},
+				{
+					"key": "resource",
+					"value": ""
+				}
+			]
+		},
+		{
+			"name": "getTag",
+			"note": "",
+			"skip": false,
+			"params": [
+				{
+					"key": "accessToken",
+					"value": "{{accessToken}}"
+				},
+				{
+					"key": "blogUrl",
+					"value": "{{blogUrl}}"
+				},
+				{
+					"key": "tagId",
+					"value": "5991bded344e5c00191d1612"
+				},
+				{
+					"key": "includeCountPosts",
+					"value": "Yes"
+				}
+			]
+		},
+		{
+			"name": "getTagBySlug",
+			"note": "",
+			"skip": false,
+			"params": [
+				{
+					"key": "accessToken",
+					"value": "{{accessToken}}"
+				},
+				{
+					"key": "blogUrl",
+					"value": "{{blogUrl}}"
+				},
+				{
+					"key": "slug",
+					"value": "getting-started"
+				},
+				{
+					"key": "includeCountPosts",
+					"value": "Yes"
+				}
+			]
+		},
+		{
+			"name": "getAllUsers",
+			"note": "",
+			"skip": false,
+			"params": [
+				{
+					"key": "accessToken",
+					"value": "{{accessToken}}"
+				},
+				{
+					"key": "blogUrl",
+					"value": "{{blogUrl}}"
+				},
+				{
+					"key": "includeCountPosts",
+					"value": "Yes"
+				},
+				{
+					"key": "limit",
+					"value": 5
+				},
+				{
+					"key": "showAllPosts",
+					"value": "Yes"
+				},
+				{
+					"key": "page",
+					"value": 1
+				},
+				{
+					"key": "order",
+					"value": "id asc"
+				},
+				{
+					"key": "fields",
+					"value": ["id"]
+				},
+				{
+					"key": "filter",
+					"value": ""
+				}
+			]
+		},
+		{
+			"name": "getUser",
+			"note": "",
+			"skip": false,
+			"params": [
+				{
+					"key": "accessToken",
+					"value": "{{accessToken}}"
+				},
+				{
+					"key": "blogUrl",
+					"value": "{{blogUrl}}"
+				},
+				{
+					"key": "userId",
+					"value": "5951f5fca366002ebd5dbef7"
+				},
+				{
+					"key": "includeCountPosts",
+					"value": "Yes"
+				}
+			]
+		},
+		{
+			"name": "getUserBySlug",
+			"note": "",
+			"skip": false,
+			"params": [
+				{
+					"key": "accessToken",
+					"value": "{{accessToken}}"
+				},
+				{
+					"key": "blogUrl",
+					"value": "{{blogUrl}}"
+				},
+				{
+					"key": "slug",
+					"value": "ghost"
+				},
+				{
+					"key": "includeCountPosts",
+					"value": "Yes"
+				}
+			]
+		},
+		{
+			"name": "getUserByEmail",
+			"note": "",
+			"skip": false,
+			"params": [
+				{
+					"key": "accessToken",
+					"value": "{{accessToken}}"
+				},
+				{
+					"key": "blogUrl",
+					"value": "{{blogUrl}}"
+				},
+				{
+					"key": "email",
+					"value": "ghost-author@example.com"
+				},
+				{
+					"key": "includeCountPosts",
+					"value": "Yes"
+				}
+			]
+		}
+	]
+}
