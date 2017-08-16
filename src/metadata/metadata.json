@@ -3,7 +3,7 @@
 	"tagline": "Ghost API",
 	"description": "Ghost is a fully open source, hackable platform for building and running a modern online publication. We power blogs, magazines and journalists from Zappos to Sky News.",
 	"image": "https://logo.clearbit.com/ghost.org/",
-	"repo": "",
+	"repo": "https://github.com/RapidSoftwareSolutions/Marketplace-Ghost-Package",
 	"keywords": [
 		"API",
 		"News",
