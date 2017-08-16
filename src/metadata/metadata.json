@@ -1,0 +1,605 @@
+{
+	"package": "Ghost",
+	"tagline": "Ghost API",
+	"description": "Ghost is a fully open source, hackable platform for building and running a modern online publication. We power blogs, magazines and journalists from Zappos to Sky News.",
+	"image": "https://logo.clearbit.com/ghost.org/",
+	"repo": "",
+	"keywords": [
+		"API",
+		"News",
+		"World",
+		"Blog",
+		"Article",
+		"Story"
+	],
+	"accounts": {
+		"domain": "ghost.org",
+    "credentials": ["clientId","clientSecret"]
+	},
+	"blocks": [
+		{
+			"name": "getAccessToken",
+			"description": "Exchange a clientId and clientSecret for an API accessToken.",
+			"args": [
+				{
+					"name": "clientId",
+					"type": "credentials",
+					"info": "API client id.",
+					"required": true
+				},
+				{
+					"name": "clientSecret",
+					"type": "credentials",
+					"info": "API client secret.",
+					"required": true
+				},
+				{
+					"name": "blogUrl",
+					"type": "String",
+					"info": "Link of the blog on which we will receive data.",
+					"required": true
+				},
+				{
+					"name": "username",
+					"type": "String",
+					"info": "User email.",
+					"required": true
+				},
+				{
+					"name": "password",
+					"type": "String",
+					"info": "User password.",
+					"required": true
+				}
+
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "getAllPosts",
+			"description": "The getAllPosts endpoint allows you to browse all published posts on a particular blog.",
+			"args": [
+				{
+					"name": "accessToken",
+					"type": "String",
+					"info": "API Access Token.",
+					"required": true
+				},
+				{
+					"name": "blogUrl",
+					"type": "String",
+					"info": "Link of the blog on which we will receive data.",
+					"required": true
+				},
+				{
+					"name": "include",
+					"type": "Select",
+					"options":["tags","author","tags and author"],
+					"info": "Include related data.",
+					"required": false
+				},
+				{
+					"name": "limit",
+					"type": "Number",
+					"info": "How many posts to retrieve.",
+					"required": false
+				},
+				{
+					"name": "showAllPosts",
+					"type": "Select",
+					"options":["Yes","No"],
+					"info": "Retrieve all posts.",
+					"required": false
+				},
+				{
+					"name": "page",
+					"type": "Number",
+					"info": "Which page of paginated results to retrieve.",
+					"required": false
+				},
+				{
+					"name": "order",
+					"type": "String",
+					"info": "Choose which field to order by and direction of ordering.",
+					"required": false
+				},
+				{
+					"name": "fields",
+					"type": "List",
+					"structure": {
+						"name": "singleField",
+						"type": "String",
+						"info": "Single field. Example - id,title."
+					},
+					"info": "Allows you to specify which resource fields to retrieve rather than retrieving the. whole object.",
+					"required": false
+				},
+				{
+					"name": "filter",
+					"type": "String",
+					"info": "Use Ghost Query Language to build complex query.",
+					"required": false
+				},
+				{
+					"name": "resource",
+					"type": "String",
+					"info": "Id or slug changes query to a read request.",
+					"required": false
+				}
+
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "getPost",
+			"description": "This endpoint allows you to read a specific post based on its id.",
+			"args": [
+				{
+					"name": "accessToken",
+					"type": "String",
+					"info": "API Access Token.",
+					"required": true
+				},
+				{
+					"name": "blogUrl",
+					"type": "String",
+					"info": "Link of the blog on which we will receive data.",
+					"required": true
+				},
+				{
+					"name": "postId",
+					"type": "String",
+					"info": "Post id you need to get.",
+					"required": true
+				},
+				{
+					"name": "include",
+					"type": "Select",
+					"options":["tags","author","tags and author"],
+					"info": "Include related data.",
+					"required": false
+				}
+
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "getPostBySlug",
+			"description": "This endpoint allows you to read a specific post based on its slug.",
+			"args": [
+				{
+					"name": "accessToken",
+					"type": "String",
+					"info": "API Access Token.",
+					"required": true
+				},
+				{
+					"name": "blogUrl",
+					"type": "String",
+					"info": "Link of the blog on which we will receive data.",
+					"required": true
+				},
+				{
+					"name": "slug",
+					"type": "String",
+					"info": "Post slug you need to get.",
+					"required": true
+				},
+				{
+					"name": "include",
+					"type": "Select",
+					"options":["tags","author","tags and author"],
+					"info": "Include related data.",
+					"required": false
+				}
+
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "getAllTags",
+			"description": "The getAllTags endpoints allow you to browse all tags on a particular blog.",
+			"args": [
+				{
+					"name": "accessToken",
+					"type": "String",
+					"info": "API Access Token.",
+					"required": true
+				},
+				{
+					"name": "blogUrl",
+					"type": "String",
+					"info": "Link of the blog on which we will receive data.",
+					"required": true
+				},
+				{
+					"name": "includeCountPosts",
+					"type": "Select",
+					"options":["Yes","No"],
+					"info": "Include related count posts data.",
+					"required": false
+				},
+				{
+					"name": "limit",
+					"type": "Number",
+					"info": "How many posts to retrieve.",
+					"required": false
+				},
+				{
+					"name": "showAllPosts",
+					"type": "Select",
+					"options":["Yes","No"],
+					"info": "Retrieve all posts on page.",
+					"required": false
+				},
+				{
+					"name": "page",
+					"type": "Number",
+					"info": "Which page of paginated results to retrieve.",
+					"required": false
+				},
+				{
+					"name": "order",
+					"type": "String",
+					"info": "Choose which field to order by and direction of ordering.",
+					"required": false
+				},
+				{
+					"name": "fields",
+					"type": "List",
+					"structure": {
+						"name": "singleField",
+						"type": "String",
+						"info": "Single field."
+					},
+					"info": "Allows you to specify which resource fields to retrieve rather than retrieving the. whole object.",
+					"required": false
+				},
+				{
+					"name": "filter",
+					"type": "String",
+					"info": "Use Ghost Query Language to build complex query.",
+					"required": false
+				},
+				{
+					"name": "resource",
+					"type": "String",
+					"info": "Id changes query to a read request.",
+					"required": false
+				}
+
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "getTag",
+			"description": "This endpoint allows you to read a specific tag based on its id.",
+			"args": [
+				{
+					"name": "accessToken",
+					"type": "String",
+					"info": "API Access Token.",
+					"required": true
+				},
+				{
+					"name": "blogUrl",
+					"type": "String",
+					"info": "Link of the blog on which we will receive data.",
+					"required": true
+				},
+				{
+					"name": "tagId",
+					"type": "String",
+					"info": "Tag id you need to get.",
+					"required": true
+				},
+				{
+					"name": "includeCountPosts",
+					"type": "Select",
+					"options":["Yes","No"],
+					"info": "Include related count posts data.",
+					"required": false
+				}
+
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "getTagBySlug",
+			"description": "This endpoint allows you to read a specific tag based on its slug.",
+			"args": [
+				{
+					"name": "accessToken",
+					"type": "String",
+					"info": "API Access Token.",
+					"required": true
+				},
+				{
+					"name": "blogUrl",
+					"type": "String",
+					"info": "Link of the blog on which we will receive data.",
+					"required": true
+				},
+				{
+					"name": "slug",
+					"type": "String",
+					"info": "Tag slug you need to get.",
+					"required": true
+				},
+				{
+					"name": "includeCountPosts",
+					"type": "Select",
+					"options":["Yes","No"],
+					"info": "Include related count posts data.",
+					"required": false
+				}
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "getAllUsers",
+			"description": "The getAllUsers endpoint allows you to browse all active users on a particular blog.",
+			"args": [
+				{
+					"name": "accessToken",
+					"type": "String",
+					"info": "API Access Token.",
+					"required": true
+				},
+				{
+					"name": "blogUrl",
+					"type": "String",
+					"info": "Link of the blog on which we will receive data.",
+					"required": true
+				},
+				{
+					"name": "includeCountPosts",
+					"type": "Select",
+					"options":["Yes","No"],
+					"info": "Include related count posts data.",
+					"required": false
+				},
+				{
+					"name": "limit",
+					"type": "Number",
+					"info": "How many posts to retrieve.",
+					"required": false
+				},
+				{
+					"name": "showAllPosts",
+					"type": "Select",
+					"options":["Yes","No"],
+					"info": "Retrieve all posts on page.",
+					"required": false
+				},
+				{
+					"name": "page",
+					"type": "Number",
+					"info": "Which page of paginated results to retrieve.",
+					"required": false
+				},
+				{
+					"name": "order",
+					"type": "String",
+					"info": "Choose which field to order by and direction of ordering.",
+					"required": false
+				},
+				{
+					"name": "fields",
+					"type": "List",
+					"structure": {
+						"name": "singleField",
+						"type": "String",
+						"info": "Single field."
+					},
+					"info": "Allows you to specify which resource fields to retrieve rather than retrieving the. whole object.",
+					"required": false
+				},
+				{
+					"name": "filter",
+					"type": "String",
+					"info": "Use Ghost Query Language to build complex query.",
+					"required": false
+				}
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "getUser",
+			"description": "This endpoint allows you to read a specific user based on its id.",
+			"args": [
+				{
+					"name": "accessToken",
+					"type": "String",
+					"info": "API Access Token.",
+					"required": true
+				},
+				{
+					"name": "blogUrl",
+					"type": "String",
+					"info": "Link of the blog on which we will receive data.",
+					"required": true
+				},
+				{
+					"name": "userId",
+					"type": "String",
+					"info": "User id you need to get.",
+					"required": true
+				},
+				{
+					"name": "includeCountPosts",
+					"type": "Select",
+					"options":["Yes","No"],
+					"info": "Include related count posts data.",
+					"required": false
+				}
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "getUserBySlug",
+			"description": "This endpoint allows you to read a specific user based on its slug.",
+			"args": [
+				{
+					"name": "accessToken",
+					"type": "String",
+					"info": "API Access Token.",
+					"required": true
+				},
+				{
+					"name": "blogUrl",
+					"type": "String",
+					"info": "Link of the blog on which we will receive data.",
+					"required": true
+				},
+				{
+					"name": "slug",
+					"type": "String",
+					"info": "User slug you need to get.",
+					"required": true
+				},
+				{
+					"name": "includeCountPosts",
+					"type": "Select",
+					"options":["Yes","No"],
+					"info": "Include related count posts data.",
+					"required": false
+				}
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "getUserByEmail",
+			"description": "This endpoint allows you to read a specific user based on its email.",
+			"args": [
+				{
+					"name": "accessToken",
+					"type": "String",
+					"info": "API Access Token.",
+					"required": true
+				},
+				{
+					"name": "blogUrl",
+					"type": "String",
+					"info": "Link of the blog on which we will receive data.",
+					"required": true
+				},
+				{
+					"name": "email",
+					"type": "String",
+					"info": "User email you need to get.",
+					"required": true
+				},
+				{
+					"name": "includeCountPosts",
+					"type": "Select",
+					"options":["Yes","No"],
+					"info": "Include related count posts data.",
+					"required": false
+				}
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		}
+
+
+		]
+}
