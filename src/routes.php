@@ -1,7 +1,6 @@
 <?php
 $routes = [
     'metadata',
-    'getAccessToken',
     'getAllPosts',
     'getPost',
     'getPostBySlug',

@@ -4,7 +4,8 @@ $app->post('/api/Ghost/getUser', function ($request, $response) {
 
 
     $option = array(
-        "accessToken" => "access_token",
+        "clientId" => "client_id",
+        "clientSecret" => "client_secret",
         "blogUrl" => "blogUrl",
         "includeCountPosts" => "include",
         "userId" => "userId"
@@ -14,7 +15,7 @@ $app->post('/api/Ghost/getUser', function ($request, $response) {
     $url = '/ghost/api/v0.1/users/';
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['accessToken','blogUrl','userId']);
+    $validateRes = $checkRequest->validate($request, ['clientId','clientSecret','blogUrl','userId']);
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
     } else {

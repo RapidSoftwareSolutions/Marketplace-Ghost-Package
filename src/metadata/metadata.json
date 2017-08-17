@@ -17,9 +17,10 @@
     "credentials": ["clientId","clientSecret"]
 	},
 	"blocks": [
+
 		{
-			"name": "getAccessToken",
-			"description": "Exchange a clientId and clientSecret for an API accessToken.",
+			"name": "getAllPosts",
+			"description": "The getAllPosts endpoint allows you to browse all published posts on a particular blog.",
 			"args": [
 				{
 					"name": "clientId",
@@ -31,47 +32,6 @@
 					"name": "clientSecret",
 					"type": "credentials",
 					"info": "API client secret.",
-					"required": true
-				},
-				{
-					"name": "blogUrl",
-					"type": "String",
-					"info": "Link of the blog on which we will receive data.",
-					"required": true
-				},
-				{
-					"name": "username",
-					"type": "String",
-					"info": "User email.",
-					"required": true
-				},
-				{
-					"name": "password",
-					"type": "String",
-					"info": "User password.",
-					"required": true
-				}
-
-
-			],
-			"callbacks": [{
-				"name": "error",
-				"info": "Error"
-			},
-				{
-					"name": "success",
-					"info": "Success"
-				}
-			]
-		},
-		{
-			"name": "getAllPosts",
-			"description": "The getAllPosts endpoint allows you to browse all published posts on a particular blog.",
-			"args": [
-				{
-					"name": "accessToken",
-					"type": "String",
-					"info": "API Access Token.",
 					"required": true
 				},
 				{
@@ -117,7 +77,8 @@
 					"type": "List",
 					"structure": {
 						"name": "singleField",
-						"type": "String",
+						"type": "Select",
+						"options":["id", "uuid", "title", "slug", "markdown", "html", "image", "featured", "page", "status", "locale", "created_at", "created_by", "updated_at", "updated_by", "published_at", "published_by", "custom_excerpt", "codeinjection_head", "codeinjection_foot", "og_image", "og_title", "og_description", "twitter_image" , "twitter_title", "twitter_description"],
 						"info": "Single field. Example - id,title."
 					},
 					"info": "Allows you to specify which resource fields to retrieve rather than retrieving the. whole object.",
@@ -126,7 +87,7 @@
 				{
 					"name": "filter",
 					"type": "String",
-					"info": "Use Ghost Query Language to build complex query.",
+					"info": "Use Ghost Query Language to build complex query.Example - featured:false,image:-null.",
 					"required": false
 				},
 				{
@@ -153,9 +114,15 @@
 			"description": "This endpoint allows you to read a specific post based on its id.",
 			"args": [
 				{
-					"name": "accessToken",
-					"type": "String",
-					"info": "API Access Token.",
+					"name": "clientId",
+					"type": "credentials",
+					"info": "API client id.",
+					"required": true
+				},
+				{
+					"name": "clientSecret",
+					"type": "credentials",
+					"info": "API client secret.",
 					"required": true
 				},
 				{
@@ -195,9 +162,15 @@
 			"description": "This endpoint allows you to read a specific post based on its slug.",
 			"args": [
 				{
-					"name": "accessToken",
-					"type": "String",
-					"info": "API Access Token.",
+					"name": "clientId",
+					"type": "credentials",
+					"info": "API client id.",
+					"required": true
+				},
+				{
+					"name": "clientSecret",
+					"type": "credentials",
+					"info": "API client secret.",
 					"required": true
 				},
 				{
@@ -237,9 +210,15 @@
 			"description": "The getAllTags endpoints allow you to browse all tags on a particular blog.",
 			"args": [
 				{
-					"name": "accessToken",
-					"type": "String",
-					"info": "API Access Token.",
+					"name": "clientId",
+					"type": "credentials",
+					"info": "API client id.",
+					"required": true
+				},
+				{
+					"name": "clientSecret",
+					"type": "credentials",
+					"info": "API client secret.",
 					"required": true
 				},
 				{
@@ -285,7 +264,8 @@
 					"type": "List",
 					"structure": {
 						"name": "singleField",
-						"type": "String",
+						"type": "Select",
+						"options":["id", "uuid", "name", "slug", "description", "image", "created_at", "created_by", "updated_at", "updated_by"],
 						"info": "Single field."
 					},
 					"info": "Allows you to specify which resource fields to retrieve rather than retrieving the. whole object.",
@@ -294,7 +274,7 @@
 				{
 					"name": "filter",
 					"type": "String",
-					"info": "Use Ghost Query Language to build complex query.",
+					"info": "Use Ghost Query Language to build complex query.Example - featured:false,image:-null.",
 					"required": false
 				},
 				{
@@ -321,9 +301,15 @@
 			"description": "This endpoint allows you to read a specific tag based on its id.",
 			"args": [
 				{
-					"name": "accessToken",
-					"type": "String",
-					"info": "API Access Token.",
+					"name": "clientId",
+					"type": "credentials",
+					"info": "API client id.",
+					"required": true
+				},
+				{
+					"name": "clientSecret",
+					"type": "credentials",
+					"info": "API client secret.",
 					"required": true
 				},
 				{
@@ -363,9 +349,15 @@
 			"description": "This endpoint allows you to read a specific tag based on its slug.",
 			"args": [
 				{
-					"name": "accessToken",
-					"type": "String",
-					"info": "API Access Token.",
+					"name": "clientId",
+					"type": "credentials",
+					"info": "API client id.",
+					"required": true
+				},
+				{
+					"name": "clientSecret",
+					"type": "credentials",
+					"info": "API client secret.",
 					"required": true
 				},
 				{
@@ -404,9 +396,15 @@
 			"description": "The getAllUsers endpoint allows you to browse all active users on a particular blog.",
 			"args": [
 				{
-					"name": "accessToken",
-					"type": "String",
-					"info": "API Access Token.",
+					"name": "clientId",
+					"type": "credentials",
+					"info": "API client id.",
+					"required": true
+				},
+				{
+					"name": "clientSecret",
+					"type": "credentials",
+					"info": "API client secret.",
 					"required": true
 				},
 				{
@@ -452,7 +450,8 @@
 					"type": "List",
 					"structure": {
 						"name": "singleField",
-						"type": "String",
+						"type": "Select",
+						"options":["id", "uuid", "name", "slug", "image", "cover", "bio", "website", "location", "status", "locale", "last_login", "created_at", "created_by", "updated_at", "updated_by"],
 						"info": "Single field."
 					},
 					"info": "Allows you to specify which resource fields to retrieve rather than retrieving the. whole object.",
@@ -461,7 +460,7 @@
 				{
 					"name": "filter",
 					"type": "String",
-					"info": "Use Ghost Query Language to build complex query.",
+					"info": "Use Ghost Query Language to build complex query.Example - featured:false,image:-null.",
 					"required": false
 				}
 
@@ -481,9 +480,15 @@
 			"description": "This endpoint allows you to read a specific user based on its id.",
 			"args": [
 				{
-					"name": "accessToken",
-					"type": "String",
-					"info": "API Access Token.",
+					"name": "clientId",
+					"type": "credentials",
+					"info": "API client id.",
+					"required": true
+				},
+				{
+					"name": "clientSecret",
+					"type": "credentials",
+					"info": "API client secret.",
 					"required": true
 				},
 				{
@@ -522,9 +527,15 @@
 			"description": "This endpoint allows you to read a specific user based on its slug.",
 			"args": [
 				{
-					"name": "accessToken",
-					"type": "String",
-					"info": "API Access Token.",
+					"name": "clientId",
+					"type": "credentials",
+					"info": "API client id.",
+					"required": true
+				},
+				{
+					"name": "clientSecret",
+					"type": "credentials",
+					"info": "API client secret.",
 					"required": true
 				},
 				{
@@ -563,9 +574,15 @@
 			"description": "This endpoint allows you to read a specific user based on its email.",
 			"args": [
 				{
-					"name": "accessToken",
-					"type": "String",
-					"info": "API Access Token.",
+					"name": "clientId",
+					"type": "credentials",
+					"info": "API client id.",
+					"required": true
+				},
+				{
+					"name": "clientSecret",
+					"type": "credentials",
+					"info": "API client secret.",
 					"required": true
 				},
 				{

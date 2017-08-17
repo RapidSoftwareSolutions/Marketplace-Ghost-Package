@@ -19,23 +19,13 @@ Ghost is a fully open source, hackable platform for building and running a moder
    |Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
 
  
-## Ghost.getAccessToken
-Exchange a clientId and clientSecret for an API accessToken.
-
-| Field       | Type       | Description
-|-------------|------------|----------
-| clientId    | credentials| API client id.
-| clientSecret| credentials| API client secret.
-| blogUrl     | String     | Link of the blog on which we will receive data.
-| username    | String     | User email.
-| password    | String     | User password.
-
 ## Ghost.getAllPosts
 The getAllPosts endpoint allows you to browse all published posts on a particular blog.By default it returns a paginated set of 15 published posts in reverse chronological order (newest first) and excludes pages.
 
 | Field       | Type  | Description
 |-------------|-------|----------
-| accessToken | String| API Access Token.
+| clientId    | credentials| API client id.
+| clientSecret| credentials| API client secret.
 | blogUrl     | String| Link of the blog on which we will receive data.
 | include     | Select| Include related data.Options - tags,author,tags and author.
 | limit       | Number| How many posts to retrieve.
@@ -43,7 +33,7 @@ The getAllPosts endpoint allows you to browse all published posts on a particula
 | page        | Number| Which page of paginated results to retrieve.The page parameter allows you to specify which page of a paginated collection to return.
 | order       | String| Choose which field to order by and direction of ordering.You can choose any valid resource field in ascending (asc) or descending (desc) order.Example:id desc.
 | fields      | List  | Allows you to specify which resource fields to retrieve rather than retrieving the. whole object.
-| filter      | String| Use Ghost Query Language to build complex query.
+| filter      | String| Use Ghost Query Language to build complex query.Example - featured:false,image:-null.
 | resource    | String| Id or slug changes query to a read request.
 
 ## Ghost.getPost
@@ -51,7 +41,8 @@ This endpoint allows you to read a specific post based on its id.
 
 | Field      | Type  | Description
 |------------|-------|----------
-| accessToken| String| API Access Token.
+| clientId    | credentials| API client id.
+| clientSecret| credentials| API client secret.
 | blogUrl    | String| Link of the blog on which we will receive data.
 | postId     | String| Post id you need to get.
 | include    | Select| Include related data.Options - tags,author,tags and author.
@@ -61,7 +52,8 @@ This endpoint allows you to read a specific post based on its slug.You can then 
 
 | Field      | Type  | Description
 |------------|-------|----------
-| accessToken| String| API Access Token.
+| clientId    | credentials| API client id.
+| clientSecret| credentials| API client secret.
 | blogUrl    | String| Link of the blog on which we will receive data.
 | slug       | String| Post slug you need to get.
 | include    | Select| Include related data.Options - tags,author,tags and author.
@@ -71,7 +63,8 @@ The getAllTags endpoints allow you to browse all tags on a particular blog.
 
 | Field            | Type  | Description
 |------------------|-------|----------
-| accessToken      | String| API Access Token.
+| clientId    | credentials| API client id.
+| clientSecret| credentials| API client secret.
 | blogUrl          | String| Link of the blog on which we will receive data.
 | includeCountPosts| Select| Include related count posts data.Options - Yes,No.
 | limit            | Number| How many posts to retrieve.
@@ -79,7 +72,7 @@ The getAllTags endpoints allow you to browse all tags on a particular blog.
 | page             | Number| Which page of paginated results to retrieve.The page parameter allows you to specify which page of a paginated collection to return.
 | order            | String| Choose which field to order by and direction of ordering.You can choose any valid resource field in ascending (asc) or descending (desc) order.Example:id desc.
 | fields           | List  | Allows you to specify which resource fields to retrieve rather than retrieving the. whole object.
-| filter           | String| Use Ghost Query Language to build complex query.
+| filter           | String| Use Ghost Query Language to build complex query.Example - featured:false,image:-null.
 | resource         | String| Id changes query to a read request.
 
 ## Ghost.getTag
@@ -87,7 +80,8 @@ This endpoint allows you to read a specific tag based on its id.
 
 | Field            | Type  | Description
 |------------------|-------|----------
-| accessToken      | String| API Access Token.
+| clientId    | credentials| API client id.
+| clientSecret| credentials| API client secret.
 | blogUrl          | String| Link of the blog on which we will receive data.
 | tagId            | String| Tag id you need to get.
 | includeCountPosts| Select| Include related count posts data.Options - Yes,No.
@@ -97,7 +91,8 @@ This endpoint allows you to read a specific tag based on its slug.
 
 | Field            | Type  | Description
 |------------------|-------|----------
-| accessToken      | String| API Access Token.
+| clientId    | credentials| API client id.
+| clientSecret| credentials| API client secret.
 | blogUrl          | String| Link of the blog on which we will receive data.
 | slug             | String| Tag slug you need to get.
 | includeCountPosts| Select| Include related count posts data.
@@ -107,7 +102,8 @@ The getAllUsers endpoint allows you to browse all active users on a particular b
 
 | Field            | Type  | Description
 |------------------|-------|----------
-| accessToken      | String| API Access Token.
+| clientId    | credentials| API client id.
+| clientSecret| credentials| API client secret.
 | blogUrl          | String| Link of the blog on which we will receive data.
 | includeCountPosts| Select| Include related count posts data.
 | limit            | Number| How many posts to retrieve.
@@ -115,14 +111,15 @@ The getAllUsers endpoint allows you to browse all active users on a particular b
 | page             | Number| Which page of paginated results to retrieve.The page parameter allows you to specify which page of a paginated collection to return.
 | order            | String| Choose which field to order by and direction of ordering.You can choose any valid resource field in ascending (asc) or descending (desc) order.Example:id desc.
 | fields           | List  | Allows you to specify which resource fields to retrieve rather than retrieving the. whole object.
-| filter           | String| Use Ghost Query Language to build complex query.
+| filter           | String| Use Ghost Query Language to build complex query.Example - featured:false,image:-null.
 
 ## Ghost.getUser
 This endpoint allows you to read a specific user based on its id.
 
 | Field            | Type  | Description
 |------------------|-------|----------
-| accessToken      | String| API Access Token.
+| clientId    | credentials| API client id.
+| clientSecret| credentials| API client secret.
 | blogUrl          | String| Link of the blog on which we will receive data.
 | userId           | String| User id you need to get.
 | includeCountPosts| Select| Include related count posts data.Options - Yes,No.
@@ -132,7 +129,8 @@ This endpoint allows you to read a specific user based on its slug.
 
 | Field            | Type  | Description
 |------------------|-------|----------
-| accessToken      | String| API Access Token.
+| clientId    | credentials| API client id.
+| clientSecret| credentials| API client secret.
 | blogUrl          | String| Link of the blog on which we will receive data.
 | slug             | String| User slug you need to get.
 | includeCountPosts| Select| Include related count posts data.Options - Yes,No.
@@ -142,7 +140,8 @@ This endpoint allows you to read a specific user based on its email.
 
 | Field            | Type  | Description
 |------------------|-------|----------
-| accessToken      | String| API Access Token.
+| clientId    | credentials| API client id.
+| clientSecret| credentials| API client secret.
 | blogUrl          | String| Link of the blog on which we will receive data.
 | email            | String| User email you need to get.
 | includeCountPosts| Select| Include related count posts data. Options - Yes,No.

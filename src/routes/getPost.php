@@ -4,7 +4,8 @@ $app->post('/api/Ghost/getPost', function ($request, $response) {
 
 
     $option = array(
-        "accessToken" => "access_token",
+        "clientId" => "client_id",
+        "clientSecret" => "client_secret",
         "blogUrl" => "blogUrl",
         "include" => "include",
         "postId" => "postId"
@@ -14,7 +15,7 @@ $app->post('/api/Ghost/getPost', function ($request, $response) {
     $url = '/ghost/api/v0.1/posts/';
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['accessToken','blogUrl','postId']);
+    $validateRes = $checkRequest->validate($request, ['clientId','clientSecret','blogUrl','postId']);
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
     } else {
