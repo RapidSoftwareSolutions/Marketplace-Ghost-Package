@@ -69,7 +69,7 @@
 				{
 					"name": "order",
 					"type": "String",
-					"info": "Choose which field to order by and direction of ordering.",
+					"info": "Choose which field to order by and direction of ordering.Example - asc id.",
 					"required": false
 				},
 				{
@@ -256,7 +256,7 @@
 				{
 					"name": "order",
 					"type": "String",
-					"info": "Choose which field to order by and direction of ordering.",
+					"info": "Choose which field to order by and direction of ordering.Example - asc id.",
 					"required": false
 				},
 				{
@@ -442,7 +442,7 @@
 				{
 					"name": "order",
 					"type": "String",
-					"info": "Choose which field to order by and direction of ordering.",
+					"info": "Choose which field to order by and direction of ordering.Example - asc id.",
 					"required": false
 				},
 				{
