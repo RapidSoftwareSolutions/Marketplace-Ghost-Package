@@ -87,7 +87,7 @@
 				{
 					"name": "filter",
 					"type": "String",
-					"info": "Use Ghost Query Language to build complex query.Example - featured:false,image:-null.",
+					"info": "Use Ghost Query Language to build complex query.Example - featured:false.",
 					"required": false
 				},
 				{
@@ -274,7 +274,7 @@
 				{
 					"name": "filter",
 					"type": "String",
-					"info": "Use Ghost Query Language to build complex query.Example - featured:false,image:-null.",
+					"info": "Use Ghost Query Language to build complex query.Example - feature_image:null.",
 					"required": false
 				},
 				{
@@ -460,7 +460,7 @@
 				{
 					"name": "filter",
 					"type": "String",
-					"info": "Use Ghost Query Language to build complex query.Example - featured:false,image:-null.",
+						"info": "Use Ghost Query Language to build complex query.Example - cover_image:null.",
 					"required": false
 				}
 

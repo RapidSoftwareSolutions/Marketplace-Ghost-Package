@@ -33,7 +33,7 @@ The getAllPosts endpoint allows you to browse all published posts on a particula
 | page        | Number| Which page of paginated results to retrieve.The page parameter allows you to specify which page of a paginated collection to return.
 | order       | String| Choose which field to order by and direction of ordering.You can choose any valid resource field in ascending (asc) or descending (desc) order.Example:id desc.
 | fields      | List  | Allows you to specify which resource fields to retrieve rather than retrieving the. whole object.
-| filter      | String| Use Ghost Query Language to build complex query.Example - featured:false,image:-null.
+| filter      | String| Use Ghost Query Language to build complex query.You can combine rules using either 'and' or 'or'. If you'd like to find all posts that are either featured, or they have an image, then you can combine these two rules with a comma , which represents 'or': filter="featured:true,image:-null".
 | resource    | String| Id or slug changes query to a read request.
 
 ## Ghost.getPost
@@ -72,7 +72,7 @@ The getAllTags endpoints allow you to browse all tags on a particular blog.
 | page             | Number| Which page of paginated results to retrieve.The page parameter allows you to specify which page of a paginated collection to return.
 | order            | String| Choose which field to order by and direction of ordering.You can choose any valid resource field in ascending (asc) or descending (desc) order.Example:id desc.
 | fields           | List  | Allows you to specify which resource fields to retrieve rather than retrieving the. whole object.
-| filter           | String| Use Ghost Query Language to build complex query.Example - featured:false,image:-null.
+| filter           | String| Use Ghost Query Language to build complex query.You can combine rules using either 'and' or 'or'. If you'd like to find all posts that are either featured, or they have an image, then you can combine these two rules with a comma , which represents 'or': filter="featured:true,image:-null".
 | resource         | String| Id changes query to a read request.
 
 ## Ghost.getTag
@@ -111,7 +111,7 @@ The getAllUsers endpoint allows you to browse all active users on a particular b
 | page             | Number| Which page of paginated results to retrieve.The page parameter allows you to specify which page of a paginated collection to return.
 | order            | String| Choose which field to order by and direction of ordering.You can choose any valid resource field in ascending (asc) or descending (desc) order.Example:id desc.
 | fields           | List  | Allows you to specify which resource fields to retrieve rather than retrieving the. whole object.
-| filter           | String| Use Ghost Query Language to build complex query.Example - featured:false,image:-null.
+| filter           | String| Use Ghost Query Language to build complex query.You can combine rules using either 'and' or 'or'. If you'd like to find all posts that are either featured, or they have an image, then you can combine these two rules with a comma , which represents 'or': filter="featured:true,image:-null".
 
 ## Ghost.getUser
 This endpoint allows you to read a specific user based on its id.
